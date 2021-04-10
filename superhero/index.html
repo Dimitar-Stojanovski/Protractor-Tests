@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style/style.css">
+
+
+  <title>Superhero Roster</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+  <div id="overlay">
+    <div class="row justify-content-md-center">
+      <h1 style="text-align: center;" id="login-title">Welcome! Please Log in.</h1>
+
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-8">
+        <form id="form-login">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp"
+              placeholder="Enter E-mail">
+
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="loginPassword" placeholder="Enter Password">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="rememberLoginCheck">
+            <label class="form-check-label" for="rememberLoginCheck">Remember Login</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div class="alert alert-danger hide" role="alert" id="login-alert">
+         An e-mail and password are required!
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col- 12">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Heroes</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.youtube.com/watch?v=LRbwYAVdo4c">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Hero Facts
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                      data-bs-target="#wolverinemodal">Wolverine</a></li>
+                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                      data-bs-target="#spidermanmodal">Spiderman</a></li>
+                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#thormodal">Thor</a></li>
+                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                      data-bs-target="#deadpoolmodal">Deadpool</a></li>
+                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#ironmanmodal">Iron
+                      Man</a></li>
+
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="logout()" href="#" tabindex="-1" aria-disabled="true">Logout</a>
+              </li>
+            </ul>
+            <form class="d-flex" id="search-form">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-box">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+
+      <!--Wolverine Modal -->
+      <div class="modal fade" id="wolverinemodal" tabindex="-1" aria-labelledby="wolverinemodalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="wolverinemodalLabel">Wolverine Facts</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Wolverine made his first commic book appearance in 1974.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Spiderman Modal -->
+      <div class="modal fade" id="spidermanmodal" tabindex="-1" aria-labelledby="spidermanmodalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="spidermanmodalLabel">Spiderman Facts</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Spiderman was created by Stan Lee and Steve Ditke and first appeared in 1962.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Thor Modal -->
+      <div class="modal fade" id="thormodal" tabindex="-1" aria-labelledby="thormodalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="thormodalLabel">Thor Facts</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Thor Odinson is the Asgardian God of Thunder, the former king of Asgard and New Asgard, and a founding
+              member of the Avengers.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Deadpool Modal -->
+      <div class="modal fade" id="deadpoolmodal" tabindex="-1" aria-labelledby="deadpoolmodalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deadpoolmodalLabel">Deadpool Facts</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Deadpool is basically Deathstroke the Terminator, a Teen Titans villain who’s known as the greatest
+              contract killer in the DC Universe.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Iron Man Modal -->
+      <div class="modal fade" id="ironmanmodal" tabindex="-1" aria-labelledby="ironmanmodalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="ironmanmodalLabel">Iron Man Facts</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Iron Man was made on a somewhat tight budget for a film of its size and scope, and that led to certain key
+              decisions that would maximize the exposure of the film while limiting the amount of money spent
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row justify-content-md-center">
+      <h1 style="text-align: center;">Superhero Roster</h1>
+
+    </div>
+
+    <div class="row justify-content-md-center bg-light">
+      <img src="./images/SuperHero.png" height="170" alt="Superhero Image">
+    </div>
+
+    <div class="row justify-content-md-center ">
+      <div class="col-8">
+        <p>
+          Imagine that you are tasked with building your superheroes to save the world. We have given you a few heroes
+          to start with. Add as many heroes as you would like to round out your dream team.
+        </p>
+
+      </div>
+
+      <div class="row justify-content-md-center bg-light">
+        <h3 style="text-align: center;">Build your Superhero Roster:</h3>
+      </div>
+
+      <div class="row justify-content-md-center bg-light">
+        <div class="col-9">
+          <ul class="list-group" id="hero-list">
+            <li class="list-group-item">Wolverine</li>
+            <li class="list-group-item">Iron Man</li>
+            <li class="list-group-item">Deadpool</li>
+            <li class="list-group-item">Thor</li>
+            <li class="list-group-item">Spiderman</li>
+          </ul>
+          <hr>
+          <div class="alert alert-warning hide" role="alert" id="addHero-Alert">
+            A simple danger alert—check it out!
+          </div>
+          <form id="addHero-form">
+            <div class="mb-3">
+              <label for="heroInput" class="form-label">Add a Super Hero</label>
+              <input type="text" class="form-control" id="heroInput" placeholder="Enter Hero">
+
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+
+        </div>
+
+      </div>
+
+      <div class="row justify-content-md-center">
+        <div class="col-9">
+          <h4>Vote for your Superhero:</h4>
+          <div class="alert alert-primary hide" role="alert" id="vote-alert">
+            Thanks for voting!
+          </div>
+          <form id="vote-form">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="heroMovieRadio" id="heroMovieRadio1" value="option1"
+                checked>
+              <label class="form-check-label" for="heroMovieRadio1">
+                X-men
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="heroMovieRadio" id="heroMovieRadio2" value="option2">
+              <label class="form-check-label" for="heroMovieRadio2">
+                Avengers
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="heroMovieRadio" id="heroMovieRadio3" value="option3">
+              <label class="form-check-label" for="heroMovieRadio3">
+                Deadpool
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="heroMovieRadio" id="heroMovieRadio4" value="option4">
+              <label class="form-check-label" for="heroMovieRadio4">
+                Spiderman
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="heroMovieRadio" id="heroMovieRadio5" value="option5">
+              <label class="form-check-label" for="heroMovieRadio5">
+                Iron Man
+              </label>
+            </div>
+            <button type="submit" id="submit-vote" class="btn btn-primary">Submit</button>
+          </form>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Movie</th>
+                <th scope="col">Votes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="movieName1">X-men</td>
+                <td id="movieVotes1">10</td>
+              </tr>
+              <tr>
+                <td id="movieName2">Avengers</td>
+                <td id="movieVotes2">22</td>
+              </tr>
+              <tr>
+                <td id="movieName3">Deadpool</td>
+                <td id="movieVotes3">15</td>
+              </tr>
+              <tr>
+                <td id="movieName4">Spiderman</td>
+                <td id="movieVotes4">3</td>
+              </tr>
+              <tr>
+                <td id="movieName5">Iron Man</td>
+                <td id="movieVotes5">12</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+    <script src="./js/script.js">
+    </script>
+
+</body>
+
+</html>
